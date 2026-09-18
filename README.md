@@ -33,7 +33,6 @@ Bagian berikut berisi **data contoh** dan harus diganti dengan data asli:
 | Tautan media sosial | `assets/js/config.js` → `social` | Isi `""` untuk menyembunyikan tautannya. |
 | **Testimoni** | `index.html`, bagian `#testimoni` | Tiga testimoni yang ada adalah **contoh fiktif**. Ganti dengan testimoni asli beserta izin dari klien yang bersangkutan. |
 | **Portofolio** | `index.html`, bagian `#karya` | Tiga proyek yang ada adalah **contoh fiktif**. Ganti dengan proyek asli, dan letakkan tangkapan layar di `assets/img/`. |
-| Durasi pengerjaan per paket | `index.html`, bagian `#paket` | "7–10 hari", "14–21 hari", "4–12 minggu" — sesuaikan dengan kapasitas Anda. |
 | Klaim di bagian angka | `index.html`, blok `.stats` | "< 1 Jam", "7–21 Hari", "DP 50%", "100% kepemilikan" adalah janji layanan. Pastikan Anda memang menjalankannya. |
 | Domain pada `<link rel="canonical">`, Open Graph, `sitemap.xml` | `index.html`, `sitemap.xml` | Ganti `kodera.id` dengan domain Anda. |
 | Gambar preview media sosial | `assets/img/og-image.png` | Belum ada. Buat gambar 1200×630 px. |
