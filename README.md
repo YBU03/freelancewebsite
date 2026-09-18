@@ -1,0 +1,93 @@
+# Kodera — Website Jasa Pembuatan Website & Aplikasi Web
+
+Situs statis satu halaman untuk bisnis jasa pembuatan website dan aplikasi web.
+Tanpa proses build, tanpa dependensi — cukup buka `index.html` atau unggah
+seluruh folder ke hosting mana pun.
+
+## Struktur
+
+```
+index.html              Seluruh isi halaman
+assets/css/style.css    Sistem desain + semua tampilan
+assets/js/config.js     ← Ubah identitas & nomor WhatsApp di sini
+assets/js/main.js       Navigasi, FAQ, reveal, formulir → WhatsApp
+assets/img/favicon.svg  Ikon tab
+robots.txt, sitemap.xml Dasar SEO
+```
+
+## Menjalankan secara lokal
+
+```bash
+python3 -m http.server 8000
+# buka http://localhost:8000
+```
+
+## ⚠️ Ganti sebelum dipublikasikan
+
+Bagian berikut berisi **data contoh** dan harus diganti dengan data asli:
+
+| Apa | Di mana | Catatan |
+|---|---|---|
+| **Nomor WhatsApp** | `assets/js/config.js` → `whatsapp` | Wajib. Saat ini `6281234567890` (nomor contoh). Format: `62` + nomor tanpa angka 0 di depan. |
+| Nama brand, email, kota, jam kerja | `assets/js/config.js` | Nama brand otomatis mengganti semua teks "Kodera" di halaman. |
+| Tautan media sosial | `assets/js/config.js` → `social` | Isi `""` untuk menyembunyikan tautannya. |
+| **Testimoni** | `index.html`, bagian `#testimoni` | Tiga testimoni yang ada adalah **contoh fiktif**. Ganti dengan testimoni asli beserta izin dari klien yang bersangkutan. |
+| **Portofolio** | `index.html`, bagian `#karya` | Tiga proyek yang ada adalah **contoh fiktif**. Ganti dengan proyek asli, dan letakkan tangkapan layar di `assets/img/`. |
+| **Harga paket** | `index.html`, bagian `#harga` | Rp 2,5 jt / 6,5 jt / 15 jt adalah angka awal sebagai titik mulai — sesuaikan dengan tarif Anda. |
+| Klaim di bagian angka | `index.html`, blok `.stats` | "< 1 Jam", "7–21 Hari", "DP 50%", "100% kepemilikan" adalah janji layanan. Pastikan Anda memang menjalankannya. |
+| Domain pada `<link rel="canonical">`, Open Graph, `sitemap.xml` | `index.html`, `sitemap.xml` | Ganti `kodera.id` dengan domain Anda. |
+| Gambar preview media sosial | `assets/img/og-image.png` | Belum ada. Buat gambar 1200×630 px. |
+
+## Alur bisnis yang tertanam di halaman
+
+Bagian **Cara Kerja** memetakan tujuh langkah:
+
+1. Konsultasi WhatsApp → 2. Pembahasan Kebutuhan → 3. Invoice & Penawaran →
+4. DP 50% → 5. Pengerjaan → 6. Revisi → 7. Pelunasan & Serah Terima
+
+Setiap langkah mencantumkan perkiraan waktu dan hasil yang diterima klien.
+Durasi dan jumlah putaran revisi ditulis di HTML — sesuaikan dengan cara Anda bekerja.
+
+## Cara kerja tombol WhatsApp
+
+Setiap elemen dengan atribut `data-wa` otomatis diarahkan ke `wa.me` beserta
+pesan yang sudah terisi:
+
+```html
+<a href="#" data-wa>Konsultasi</a>                        <!-- pesan umum -->
+<a href="#" data-wa data-wa-plan="Bisnis">Ambil Paket</a>  <!-- menyebut paket -->
+```
+
+Formulir brief (`#brief`) menyusun pesan terstruktur berisi nama, bisnis,
+jenis kebutuhan, anggaran, dan deskripsi — lalu membuka WhatsApp dengan pesan
+tersebut. Tidak ada data yang dikirim ke server mana pun.
+
+## Catatan desain
+
+Mengikuti prinsip desain Apple (skill `design/liquid-glass`, `design/typography`,
+`design/ux-writing` dari [claude-code-apple-skills](https://github.com/rshankras/claude-code-apple-skills),
+tersalin di `.claude/skills/`):
+
+- **Kaca hanya di lapisan navigasi** — bilah atas, menu, dan tombol mengambang.
+  Kartu konten memakai isian dan garis tipis, bukan kaca. Tidak ada kaca di atas kaca.
+- **Warna aksen hanya untuk aksi utama.** Merah menandai satu tombol per bagian;
+  kalau semuanya diberi warna, tidak ada yang menonjol.
+- **Hierarki dari tipografi**, bukan dari dekorasi. Tiga tingkat ukuran, tracking
+  makin rapat seiring ukuran membesar (meniru perilaku SF Display).
+- **Radius konsentris** — radius elemen di dalam = radius induk dikurangi padding.
+- **Gerak** memakai kurva pegas dan tidak ada yang melewati 0,6 detik.
+  Seluruhnya dinonaktifkan saat `prefers-reduced-motion` aktif.
+
+## Aksesibilitas
+
+Tautan lewati-ke-konten, `aria-expanded`/`aria-controls` pada FAQ dan menu,
+penutupan menu dengan tombol Esc, cincin fokus yang terlihat, penyesuaian untuk
+`prefers-reduced-motion` dan `prefers-contrast: more`, serta gaya cetak.
+
+## Publikasi
+
+Folder statis — bisa langsung diunggah:
+
+- **Vercel / Netlify** — hubungkan repositori, tanpa pengaturan build.
+- **GitHub Pages** — Settings → Pages → arahkan ke branch ini.
+- **cPanel / hosting biasa** — unggah seluruh isi folder ke `public_html`.
