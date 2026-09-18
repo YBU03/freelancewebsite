@@ -61,7 +61,7 @@
       .replace(/\{brand\}/g, CFG.brand || "");
     if (plan) {
       base = "Halo " + (CFG.brand || "") + ", saya tertarik dengan paket " + plan +
-             ". Boleh dijelaskan lebih detail?";
+             ". Boleh minta rincian harga dan estimasi waktunya?";
     }
     return base;
   }

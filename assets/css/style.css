@@ -586,15 +586,14 @@ a { color: inherit; text-decoration: none; }
 .plan__name { font-size: 1.28rem; font-weight: 700; letter-spacing: -0.025em; }
 .plan--featured .plan__name { padding-right: 130px; }
 .plan__for { font-size: 0.9rem; color: var(--text-3); margin-top: 6px; min-height: 68px; }
-.plan__price {
+.plan__eta {
   margin: 20px 0 4px;
   font-size: clamp(1.9rem, 3vw, 2.3rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.1;
 }
-.plan__price small { font-size: 0.86rem; font-weight: 500; color: var(--text-3); letter-spacing: -0.01em; }
-.plan__term { font-size: 0.84rem; color: var(--text-3); }
+.plan__scope { font-size: 0.84rem; color: var(--text-3); }
 .plan__list { list-style: none; margin: 26px 0 28px; padding: 0; display: grid; gap: 12px; }
 .plan__list li {
   display: grid;

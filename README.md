@@ -33,10 +33,26 @@ Bagian berikut berisi **data contoh** dan harus diganti dengan data asli:
 | Tautan media sosial | `assets/js/config.js` → `social` | Isi `""` untuk menyembunyikan tautannya. |
 | **Testimoni** | `index.html`, bagian `#testimoni` | Tiga testimoni yang ada adalah **contoh fiktif**. Ganti dengan testimoni asli beserta izin dari klien yang bersangkutan. |
 | **Portofolio** | `index.html`, bagian `#karya` | Tiga proyek yang ada adalah **contoh fiktif**. Ganti dengan proyek asli, dan letakkan tangkapan layar di `assets/img/`. |
-| **Harga paket** | `index.html`, bagian `#harga` | Rp 2,5 jt / 6,5 jt / 15 jt adalah angka awal sebagai titik mulai — sesuaikan dengan tarif Anda. |
+| Durasi pengerjaan per paket | `index.html`, bagian `#paket` | "7–10 hari", "14–21 hari", "4–12 minggu" — sesuaikan dengan kapasitas Anda. |
 | Klaim di bagian angka | `index.html`, blok `.stats` | "< 1 Jam", "7–21 Hari", "DP 50%", "100% kepemilikan" adalah janji layanan. Pastikan Anda memang menjalankannya. |
 | Domain pada `<link rel="canonical">`, Open Graph, `sitemap.xml` | `index.html`, `sitemap.xml` | Ganti `kodera.id` dengan domain Anda. |
 | Gambar preview media sosial | `assets/img/og-image.png` | Belum ada. Buat gambar 1200×630 px. |
+
+## Harga dibahas lewat chat
+
+Halaman ini **tidak menampilkan angka harga**. Bagian `#paket` hanya
+memperlihatkan tiga cakupan layanan beserta perkiraan durasi, dan setiap
+tombolnya membuka WhatsApp dengan pesan yang meminta rincian harga.
+
+Ini sejalan dengan alur di bawah: harga baru muncul di langkah 3 (Invoice &
+Penawaran), setelah kebutuhan dibahas. Dua pertanyaan pertama di FAQ
+menjelaskan alasannya kepada pengunjung, supaya ketiadaan angka tidak terbaca
+sebagai menyembunyikan sesuatu.
+
+Satu-satunya angka rupiah yang tersisa ada di **formulir brief** — pilihan
+"Perkiraan anggaran". Itu menanyakan anggaran calon klien, bukan tarif Anda,
+dan membantu menyaring sebelum masuk ke chat. Hapus blok `<div class="field">`
+untuk `#f-budget` di `index.html` bila tidak diperlukan.
 
 ## Alur bisnis yang tertanam di halaman
 
@@ -55,7 +71,7 @@ pesan yang sudah terisi:
 
 ```html
 <a href="#" data-wa>Konsultasi</a>                        <!-- pesan umum -->
-<a href="#" data-wa data-wa-plan="Bisnis">Ambil Paket</a>  <!-- menyebut paket -->
+<a href="#" data-wa data-wa-plan="Bisnis">Tanya Harga</a>  <!-- menanyakan harga paket -->
 ```
 
 Formulir brief (`#brief`) menyusun pesan terstruktur berisi nama, bisnis,
