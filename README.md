@@ -32,10 +32,30 @@ Bagian berikut berisi **data contoh** dan harus diganti dengan data asli:
 | Nama brand, email, kota, jam kerja | `assets/js/config.js` | Nama brand otomatis mengganti semua teks "Kodera" di halaman. |
 | Tautan media sosial | `assets/js/config.js` → `social` | Isi `""` untuk menyembunyikan tautannya. |
 | **Testimoni** | `index.html`, bagian `#testimoni` | Tiga testimoni yang ada adalah **contoh fiktif**. Ganti dengan testimoni asli beserta izin dari klien yang bersangkutan. |
-| **Portofolio** | `index.html`, bagian `#karya` | Tiga proyek yang ada adalah **contoh fiktif**. Ganti dengan proyek asli, dan letakkan tangkapan layar di `assets/img/`. |
+| **Testimoni tidak cocok dengan portofolio** | `index.html`, bagian `#testimoni` | Testimoni menyebut Nusantara Logistik, Kopi Rakyat, dan Klinik Sehat Prima — nama-nama karangan yang **tidak ada** di portofolio. Pengunjung akan menyadarinya. Ganti dengan testimoni asli dari klien Pracaya, Ayomancing, dan sejenisnya, atau hapus seluruh bagian ini. |
 | Klaim di bagian angka | `index.html`, blok `.stats` | "< 1 Jam", "Gratis", "DP 50%", "100% kepemilikan" adalah janji layanan, bukan rekam jejak. Pastikan Anda memang menjalankannya. |
 | Domain pada `<link rel="canonical">`, Open Graph, `sitemap.xml` | `index.html`, `sitemap.xml` | Ganti `kodera.id` dengan domain Anda. |
 | Gambar preview media sosial | `assets/img/og-image.png` | Belum ada. Buat gambar 1200×630 px. |
+
+## Portofolio
+
+Enam karya di bagian `#karya` adalah **proyek nyata**, diambil dari situs
+portofolio Yubuild: Pracaya, SMP Ibnu Sina, Karya Logam Jaya, Rintis,
+Ayomancing, dan Makaryo. Tangkapan layarnya ada di `assets/img/karya/`
+(WebP, 880×550, total ~200 KB).
+
+Setiap kartu adalah tautan WhatsApp yang menyebut nama karyanya:
+
+```html
+<a class="work__item" href="#" data-wa data-wa-work="Pracaya"> … </a>
+```
+
+menghasilkan pesan *"saya lihat karya Pracaya di website Anda. Saya mau yang
+seperti itu untuk usaha saya…"* — jadi pengunjung masuk chat sambil membawa
+konteks.
+
+Menambah karya: salin satu blok `<a class="work__item">`, letakkan gambar
+880×550 di `assets/img/karya/`, dan sesuaikan `data-wa-work`.
 
 ## Harga dan waktu dibahas lewat chat
 

@@ -56,7 +56,12 @@
     return "https://wa.me/" + nomor + (teks ? "?text=" + teks : "");
   }
 
-  function greeting(plan) {
+  function greeting(plan, work) {
+    if (work) {
+      return "Halo " + (CFG.brand || "") + ", saya lihat karya \"" + work +
+             "\" di website Anda. Saya mau yang seperti itu untuk usaha saya. " +
+             "Boleh minta rincian harga dan estimasi waktunya?";
+    }
     var base = (CFG.waGreeting || "Halo {brand}, saya ingin konsultasi soal pembuatan website.")
       .replace(/\{brand\}/g, CFG.brand || "");
     if (plan) {
@@ -69,7 +74,8 @@
   function bindWhatsApp() {
     document.querySelectorAll("[data-wa]").forEach(function (el) {
       var plan = el.getAttribute("data-wa-plan");
-      el.href = waLink(greeting(plan));
+      var work = el.getAttribute("data-wa-work");
+      el.href = waLink(greeting(plan, work));
       el.target = "_blank";
       el.rel = "noopener noreferrer";
     });

@@ -622,38 +622,68 @@ a { color: inherit; text-decoration: none; }
 /* ---------- 12. Work / showcase ---------- */
 .work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .work__item {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: var(--r-xl);
   overflow: hidden;
   background: var(--ink-2);
-  transition: transform var(--t-base) var(--ease-spring), border-color var(--t-base) var(--ease-out);
+  transition: transform var(--t-base) var(--ease-spring),
+              border-color var(--t-base) var(--ease-out);
 }
-.work__item:hover { transform: translateY(-5px); border-color: var(--line-strong); }
+.work__item:hover { transform: translateY(-5px); border-color: rgba(255, 59, 48, 0.4); }
+
 .work__shot {
+  display: block;
   aspect-ratio: 16 / 10;
-  display: grid;
-  place-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #1a1a20, #0b0b0e);
+  background: var(--ink-3);
   border-bottom: 1px solid var(--line);
 }
+.work__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--t-slow) var(--ease-spring);
+}
+.work__item:hover .work__shot img { transform: scale(1.035); }
+/* Kaca gelap tipis supaya tangkapan layar terang tetap menyatu dengan halaman */
 .work__shot::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(100% 80% at 50% 0%, var(--red-wash), transparent 70%);
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.45));
+  pointer-events: none;
 }
-.work__shot span {
-  font-size: 2.6rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: rgba(255,255,255,0.07);
-  position: relative;
-  z-index: 1;
+
+.work__meta { display: flex; flex-direction: column; padding: 22px 24px 24px; flex: 1; }
+.work__kind {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--red-hi);
+  margin-bottom: 9px;
 }
-.work__meta { padding: 22px 24px 26px; }
-.work__meta .t-small { margin-top: 8px; }
+.work__meta .t-h4 { margin-bottom: 8px; }
+.work__meta .t-small { line-height: 1.55; }
+.work__meta .tags { margin-bottom: 18px; }
+
+.work__cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-3);
+  transition: color var(--t-fast) var(--ease-out);
+}
+.work__cta svg { width: 15px; height: 15px; transition: transform var(--t-fast) var(--ease-spring); }
+.work__item:hover .work__cta { color: var(--red-hi); }
+.work__item:hover .work__cta svg { transform: translateX(4px); }
 
 /* ---------- 13. Testimonials ---------- */
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
