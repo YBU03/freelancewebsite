@@ -38,21 +38,28 @@ Bagian berikut berisi **data contoh** dan harus diganti dengan data asli:
 | Domain pada `<link rel="canonical">`, Open Graph, `sitemap.xml` | `index.html`, `sitemap.xml` | Ganti `kodera.id` dengan domain Anda. |
 | Gambar preview media sosial | `assets/img/og-image.png` | Belum ada. Buat gambar 1200×630 px. |
 
-## Harga dibahas lewat chat
+## Harga dan waktu dibahas lewat chat
 
-Halaman ini **tidak menampilkan angka harga**. Bagian `#paket` hanya
-memperlihatkan tiga cakupan layanan beserta perkiraan durasi, dan setiap
-tombolnya membuka WhatsApp dengan pesan yang meminta rincian harga.
+Halaman ini **tidak menampilkan angka harga maupun lama pengerjaan**. Keduanya
+disampaikan lewat WhatsApp, menyesuaikan kebutuhan tiap klien.
 
-Ini sejalan dengan alur di bawah: harga baru muncul di langkah 3 (Invoice &
-Penawaran), setelah kebutuhan dibahas. Dua pertanyaan pertama di FAQ
-menjelaskan alasannya kepada pengunjung, supaya ketiadaan angka tidak terbaca
-sebagai menyembunyikan sesuatu.
+- Bagian `#paket` menampilkan tiga cakupan layanan (1 halaman / 5–8 halaman /
+  custom) beserta skema pembayarannya, tanpa nominal dan tanpa estimasi hari.
+- Badge di bagian **Cara Kerja** berisi penanda tahap ("Gratis", "Tanpa ikatan",
+  "Setelah setuju"), bukan durasi.
+- Dua pertanyaan pertama di FAQ menjelaskan alasan harga tidak dicantumkan, dan
+  satu pertanyaan lain menjelaskan hal yang sama untuk waktu pengerjaan — supaya
+  ketiadaan angka tidak terbaca sebagai menyembunyikan sesuatu.
+- Tombol tiap paket membuka WhatsApp dengan pesan yang meminta rincian harga
+  dan estimasi waktu sekaligus.
 
-Satu-satunya angka rupiah yang tersisa ada di **formulir brief** — pilihan
-"Perkiraan anggaran". Itu menanyakan anggaran calon klien, bukan tarif Anda,
-dan membantu menyaring sebelum masuk ke chat. Hapus blok `<div class="field">`
-untuk `#f-budget` di `index.html` bila tidak diperlukan.
+**Tiga angka yang sengaja dipertahankan** — hapus sendiri bila tidak diinginkan:
+
+| Angka | Di mana | Alasan dipertahankan |
+|---|---|---|
+| "< 1 Jam" dan "dalam satu hari kerja" | blok `.stats`, bagian `#paket` | Janji kecepatan **balasan**, bukan lama pengerjaan. Justru mendukung alur chat-first. |
+| "Garansi bug 30/90 hari" | daftar fitur di `#paket` | Jaminan yang Anda berikan, bukan estimasi penyelesaian. |
+| Pilihan "Perkiraan anggaran" | formulir brief, `#f-budget` | Menanyakan anggaran calon klien, bukan tarif Anda. Membantu menyaring sebelum chat. Hapus blok `<div class="field">` untuk `#f-budget` bila tidak perlu. |
 
 ## Alur bisnis yang tertanam di halaman
 
